@@ -1,26 +1,47 @@
-let ataqueJugador 
+let sectionSeleccionarAtaque = document.getElementById("Seleccionar-Ataque")
+let sectionReiniciar = document.getElementById("reiniciar")
+let botonCompañero = document.getElementById("boton-compañero")
+let botonFuego = document.getElementById("boton-fuego")
+let botonAgua = document.getElementById("boton-agua")
+let botonPlanta = document.getElementById("boton-planta")
+let botonReiniciar = document.getElementById("boton-reiniciar")
+
+let sectionSeleccionarCompañero = document.getElementById("Seleccionar-compañero")
+let inputPogrigar = document.getElementById("Pogrigar")
+let inputTorregor = document.getElementById("Torregor")
+let inputCalamity = document.getElementById("Calamity")
+let inputCraptos = document.getElementById("Craptos")
+let inputMorthepko = document.getElementById("Morthepko")
+let inputAnfregor = document.getElementById("Anfregor")
+let spanCompañeroAliado = document.getElementById("compañero-aliado")
+
+let spanCompañeroEnemigo = document.getElementById("compañero-enemigo")
+
+let spanVidasJugador = document.getElementById("vidas-jugador")
+let spanVidasEnemigo = document.getElementById("vidas-enemigo")
+
+let divResultado = document.getElementById("resultado-combate")
+
+let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 5
 let vidasEnemigo = 5
 
 function iniciarJuego() {
 
-    let sectionSeleccionarAtaque = document.getElementById("Seleccionar-Ataque")
+
     sectionSeleccionarAtaque.style.display = "none"
 
-    let sectionReiniciar = document.getElementById("reiniciar")
     sectionReiniciar.style.display = "none"
 
-    let botonCompañero = document.getElementById("boton-compañero")
     botonCompañero.addEventListener("click", seleccionarCompañero)
 
-    let botonFuego = document.getElementById("boton-fuego")
-    botonFuego.addEventListener("click", ataqueFuego) 
-    let botonAgua = document.getElementById("boton-agua")
-    botonAgua.addEventListener("click", ataqueAgua) 
-    let botonPlanta = document.getElementById("boton-planta")
-    botonPlanta.addEventListener("click", ataquePlanta) 
-    let botonReiniciar = document.getElementById("boton-reiniciar")
+    botonFuego.addEventListener("click", ataqueFuego)
+
+    botonAgua.addEventListener("click", ataqueAgua)
+
+    botonPlanta.addEventListener("click", ataquePlanta)
+
     botonReiniciar.addEventListener("click", reiniciarJuego)
 }
 
@@ -29,22 +50,9 @@ function iniciarJuego() {
 
 function seleccionarCompañero(COMPAÑERO) {
 
-    let sectionSeleccionarCompañero = document.getElementById("Seleccionar-compañero")
     sectionSeleccionarCompañero.style.display = "none"
-    
-    let sectionSeleccionarAtaque = document.getElementById("Seleccionar-Ataque")
+
     sectionSeleccionarAtaque.style.display = "flex"
-
-
-    let inputPogrigar = document.getElementById("Pogrigar")
-    let inputTorregor = document.getElementById("Torregor")
-    let inputCalamity = document.getElementById("Calamity")
-    let inputCraptos = document.getElementById("Craptos")
-    let inputMorthepko = document.getElementById("Morthepko")
-    let inputAnfregor = document.getElementById("Anfregor")
-    let spanCompañeroAliado = document.getElementById("compañero-aliado")
-
-
 
     if(inputPogrigar.checked) {
         COMPAÑERO = "Pogrigar"
@@ -77,19 +85,16 @@ function seleccionarCompañero(COMPAÑERO) {
 
     seleccionarCompañeroEnemigo()
 
-    let botonCompañero = document.getElementById("boton-compañero")
     botonCompañero.disabled = true
 
     sectionSeleccionarAtaque.style.display = "block"
 
     sectionSeleccionarCompañero.style.display = "none"
 
-    
 }
 
 function seleccionarCompañeroEnemigo() {
     let mascotaAleatorio = aleatorio (1, 6)
-    let spanCompañeroEnemigo = document.getElementById("compañero-enemigo")
 
     if (mascotaAleatorio == 1) {
         spanCompañeroEnemigo.innerHTML = "Pogrigar"
@@ -122,7 +127,7 @@ function ataquePlanta() {
 }
 
 function ataqueDelEnemigo() {
-    
+
     let ataqueAleatorio = aleatorio(1,3)
 
     if (ataqueAleatorio == 1) {
@@ -136,24 +141,24 @@ function ataqueDelEnemigo() {
 
     }
 
- function Combate(jugada) {
-    let spanVidasJugador = document.getElementById("vidas-jugador")
-    let spanVidasEnemigo = document.getElementById("vidas-enemigo")
+function Combate(jugada) {
+
+
 
     if(ataqueEnemigo == ataqueJugador) {
-         crearMensaje("EMPATE")
+        crearMensaje("EMPATE")
     } else if( ataqueJugador == "FUEGO" && ataqueEnemigo == "PLANTA") {
         crearMensaje("GANASTE")
         vidasEnemigo--
-         spanVidasEnemigo.innerHTML = vidasEnemigo
+        spanVidasEnemigo.innerHTML = vidasEnemigo
     } else if(ataqueJugador == "AGUA" && ataqueEnemigo == "FUEGO") {
-         crearMensaje("GANASTE")
-         vidasEnemigo--
-         spanVidasEnemigo.innerHTML = vidasEnemigo
+        crearMensaje("GANASTE")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
     }  else if(ataqueJugador == "PLANTA" && ataqueEnemigo == "AGUA") {
-         crearMensaje("GANASTE")
-         vidasEnemigo--
-         spanVidasEnemigo.innerHTML = vidasEnemigo
+        crearMensaje("GANASTE")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
     } else {
         crearMensaje("PERDISTE")
         vidasJugador--
@@ -172,25 +177,22 @@ function revisarVidas() {
 
 
 }
-    
+
 
 function crearMensaje(resultados) {
     let divResultado = document.getElementById("resultado-combate")
-    
+
     divResultado.innerHTML = "Tu compañero atacó con " + ataqueJugador + ", el compañero enemigo atacó con " + ataqueEnemigo + "<br><strong>" + resultados + "</strong>"
 }
 
 function crearMensajeFinal(final) {
-    let divResultado = document.getElementById("resultado-combate")
-    let sectionReiniciar = document.getElementById("reiniciar")
-    
+
     divResultado.innerHTML = "<strong>" + final + "</strong>"
 
-    let botonFuego = document.getElementById("boton-fuego")
     botonFuego.disabled = true
-    let botonAgua = document.getElementById("boton-agua")
+
     botonAgua.disabled = true
-    let botonPlanta = document.getElementById("boton-planta")
+
     botonPlanta.disabled = true
 
     sectionReiniciar.style.display = "block"
@@ -199,7 +201,6 @@ function crearMensajeFinal(final) {
 function reiniciarJuego() {
     location.reload()
 }
-
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
