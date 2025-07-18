@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Urbanist:ital,wght@1,100&display=swap');
+
+body {
+    
+    font-family: 'Urbanist', sans-serif;    
+    background-image: url(assets/coliseo\ fuera.jpg);
+    background-size: cover;
+    
+
+}
+
+#Seleccionar-compañero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555843;
+    font-size: 60px;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.subtitulo {
+    color: #555843;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.tarjetas {
+    display: flex;
+    gap: 20px;
+
+}
+
+.tarjeta-de-mokepon {
+    font-size: 24px;
+    width: 240px;
+    height: 240px;
+    background-color: #A7D397;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 10px;
+    border: 5px solid #D0D4CA;
+    color: #555843;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    display: block;
+    margin: auto;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor:pointer;
+    
+}
+
+.tarjeta-de-mokepon:hover {
+    background-color: transparent;
+}
+
+.tarjeta-de-mokepon img { 
+    width: 120px;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        display: block;
+        margin: auto;
+      }
+    
+#boton-compañero{
+    font-size: 40px;
+    width: 220px;
+    height: 80px;
+    border-radius: 15px;
+    background: transparent;
+    border: 4px solid #D0D4CA;
+    color: white;
+    font-family: 'Urbanist', sans-serif;   
+    margin-top: 50px;
+    justify-content: center; 
+    align-items: center; 
+    cursor:pointer;
+
+
+}
+
+input {
+    display: none;
+}
+
+#Seleccionar-Ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Compañeros-Pelea {
+    position: absolute;
+    left: 20px;
+    background-color: #A7D397;
+    border-radius: 15px;
+    padding: 10px 30px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #555843;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.vida-enemigo {
+    position: absolute;
+    right: 20px;
+    background-color: #A7D397;
+    border-radius: 15px;
+    padding: 10px 30px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #555843;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#resultado-combate {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 300px;
+    background-color: #A7D397;
+    border-radius: 15px;
+    padding: 10px 30px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #555843;
+    font-family: 'Josefin Sans', sans-serif;
+    min-width: 300px;
+    text-align: center;
+}
+
+#Boton-De-Ataque {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.Tipos-De-Ataque {
+    font-size: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    border-color: #F1EB90;
+    height: 60px;
+    width: 110px;
+    background-color: #9FBB73;
+    font-family: 'Josefin Sans', sans-serif; 
+    cursor:pointer;
+}
+
