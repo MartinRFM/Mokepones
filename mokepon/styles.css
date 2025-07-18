@@ -96,50 +96,60 @@ input {
     display: none;
 }
 
+
+input[type="radio"]:checked + .tarjeta-de-mokepon {
+    background-color: #2E8B57;
+    border-color: #FF6B35;
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+    transform: scale(1.05);
+}
+
 #Seleccionar-Ataque {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.contenedor-vidas {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
 .Compañeros-Pelea {
-    position: absolute;
-    left: 20px;
     background-color: #A7D397;
     border-radius: 15px;
     padding: 10px 30px;
-    margin-bottom: 10px;
     font-size: 24px;
     color: #555843;
     font-family: 'Josefin Sans', sans-serif;
 }
 
 .vida-enemigo {
-    position: absolute;
-    right: 20px;
     background-color: #A7D397;
     border-radius: 15px;
     padding: 10px 30px;
-    margin-bottom: 10px;
     font-size: 24px;
     color: #555843;
     font-family: 'Josefin Sans', sans-serif;
 }
 
 #resultado-combate {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 300px;
     background-color: #A7D397;
     border-radius: 15px;
-    padding: 10px 30px;
-    margin-bottom: 10px;
-    font-size: 24px;
+    padding: 15px 30px;
+    margin: 20px auto;
+    font-size: 32px;
     color: #555843;
     font-family: 'Josefin Sans', sans-serif;
-    min-width: 300px;
+    min-width: 400px;
     text-align: center;
+    display: block;
+    line-height: 1.4;
 }
 
 #Boton-De-Ataque {
@@ -159,5 +169,92 @@ input {
     background-color: #9FBB73;
     font-family: 'Josefin Sans', sans-serif; 
     cursor:pointer;
+}
+
+#reiniciar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#boton-reiniciar {
+    font-size: 40px;
+    width: 220px;
+    height: 80px;
+    border-radius: 15px;
+    background: transparent;
+    border: 4px solid #D0D4CA;
+    color: white;
+    font-family: 'Urbanist', sans-serif;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .tarjetas {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .tarjeta-de-mokepon {
+        width: 280px;
+        height: 280px;
+        margin: 5px;
+    }
+    
+    .titulos {
+        font-size: 45px;
+    }
+    
+    .subtitulo {
+        font-size: 32px;
+    }
+    
+    #Boton-De-Ataque {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .contenedor-vidas {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    #resultado-combate {
+        min-width: 300px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tarjeta-de-mokepon {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .titulos {
+        font-size: 35px;
+    }
+    
+    .subtitulo {
+        font-size: 28px;
+    }
+    
+    #boton-compañero {
+        font-size: 32px;
+        width: 180px;
+        height: 60px;
+    }
+    
+    #boton-reiniciar {
+        font-size: 32px;
+        width: 180px;
+        height: 60px;
+    }
 }
 

@@ -175,25 +175,16 @@ function revisarVidas() {
     
 
 function crearMensaje(resultados) {
-    let sectionMensajes = document.getElementById("mensajes")
-    let resultado
-
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = "Tu compañero ataco con " + ataqueJugador + ", el compañero enemigo ataco con " + ataqueEnemigo + "-" + resultados
-
-    sectionMensajes.appendChild(parrafo)
+    let divResultado = document.getElementById("resultado-combate")
+    
+    divResultado.innerHTML = "Tu compañero atacó con " + ataqueJugador + ", el compañero enemigo atacó con " + ataqueEnemigo + "<br><strong>" + resultados + "</strong>"
 }
 
 function crearMensajeFinal(final) {
-    let sectionMensajes = document.getElementById("mensajes")
-    let resultado
+    let divResultado = document.getElementById("resultado-combate")
     let sectionReiniciar = document.getElementById("reiniciar")
     
-
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = final
-
-    sectionMensajes.appendChild(parrafo)
+    divResultado.innerHTML = "<strong>" + final + "</strong>"
 
     let botonFuego = document.getElementById("boton-fuego")
     botonFuego.disabled = true
