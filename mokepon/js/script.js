@@ -7,12 +7,7 @@ let botonPlanta = document.getElementById("boton-planta")
 let botonReiniciar = document.getElementById("boton-reiniciar")
 
 let sectionSeleccionarCompañero = document.getElementById("Seleccionar-compañero")
-let inputPogrigar = document.getElementById("Pogrigar")
-let inputTorregor = document.getElementById("Torregor")
-let inputCalamity = document.getElementById("Calamity")
-let inputCraptos = document.getElementById("Craptos")
-let inputMorthepko = document.getElementById("Morthepko")
-let inputAnfregor = document.getElementById("Anfregor")
+
 let spanCompañeroAliado = document.getElementById("compañero-aliado")
 
 let spanCompañeroEnemigo = document.getElementById("compañero-enemigo")
@@ -22,15 +17,109 @@ let spanVidasEnemigo = document.getElementById("vidas-enemigo")
 
 let divResultado = document.getElementById("resultado-combate")
 
+let contenedorTarjetas = document.getElementById("contenedorTarjetas")
+
+let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
+let opcionDeMokepones
+let inputPogrigar 
+let inputTorregor 
+let inputCalamity 
+let inputCraptos 
+let inputMorthepko 
+let inputAnfregor 
 let vidasJugador = 5
 let vidasEnemigo = 5
+
+class Mokepon {
+    constructor(nombre, foto, vida){
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+        this.ataque = []
+    }
+}
+
+let Pogrigar = new Mokepon('Pogrigar', './assets/podrigar.jpg', 5)
+let Torregor = new Mokepon('Torregor', './assets/torregor.jpg', 5)
+let Calamity = new Mokepon('Calamity', './assets/calamity.jpg', 5)
+let Craptos = new Mokepon('Craptos', './assets/craptos.jpg', 5)
+let Morthepko = new Mokepon('Morthepko', './assets/morthepko.jpg', 5)
+let Anfregor = new Mokepon('Anfregor', './assets/anfregor.jpg', 5)
+
+Pogrigar.ataque.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🌿', id: 'boton-planta'}
+)
+
+Torregor.ataque.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🌿', id: 'boton-planta'},
+    {nombre: '🌿', id: 'boton-planta'},
+    {nombre: '🌿', id: 'boton-planta'}
+)
+
+Calamity.ataque.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🌿', id: 'boton-planta'}
+)
+
+Craptos.ataque.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🌿', id: 'boton-planta'}
+)
+
+Morthepko.ataque.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🌿', id: 'boton-planta'},
+    {nombre: '🌿', id: 'boton-planta'}
+)
+
+Anfregor.ataque.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🌿', id: 'boton-planta'},
+    {nombre: '🌿', id: 'boton-planta'}
+)
+
+mokepones.push(Pogrigar, Torregor, Calamity, Craptos, Morthepko, Anfregor)
+
 
 function iniciarJuego() {
 
 
     sectionSeleccionarAtaque.style.display = "none"
+
+    mokepones.forEach((mokepon) => {
+        opcionDeMokepones = `
+        <input type="radio" name="compañero" id=${mokepon.nombre} />
+                <label class="tarjeta-de-mokepon" for=${mokepon.nombre} >
+                    <p>${mokepon.nombre} </p>
+                    <img src=${mokepon.foto}  alt=${mokepon.nombre} >
+                </label>
+        `
+    contenedorTarjetas.innerHTML += opcionDeMokepones
+    inputPogrigar = document.getElementById("Pogrigar")
+    inputTorregor = document.getElementById("Torregor")
+    inputCalamity = document.getElementById("Calamity")
+    inputCraptos = document.getElementById("Craptos")
+    inputMorthepko = document.getElementById("Morthepko")
+    inputAnfregor = document.getElementById("Anfregor")
+    } )
 
     sectionReiniciar.style.display = "none"
 
@@ -55,8 +144,8 @@ function seleccionarCompañero(COMPAÑERO) {
     sectionSeleccionarAtaque.style.display = "flex"
 
     if(inputPogrigar.checked) {
-        COMPAÑERO = "Pogrigar"
-        alert("Has elegido a " + COMPAÑERO + ", sabia eleccion.")
+        mokepon = "Pogrigar"
+        alert(`Has elegido a ${COMPAÑERO}, sabia eleccion.`)
         spanCompañeroAliado.innerHTML = "Pogrigar"
     } else if(inputTorregor.checked) {
         COMPAÑERO = "Torregor"
